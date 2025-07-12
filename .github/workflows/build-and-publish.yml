@@ -20,8 +20,6 @@ jobs:
   build:
     name: Build Resume
     runs-on: ubuntu-latest
-    outputs:
-      artifact-id: ${{ steps.upload-pages.outputs.artifact-id }}
     
     steps:
       - name: Check out the repo
@@ -129,5 +127,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: ${{ needs.build.outputs.artifact-id }}
