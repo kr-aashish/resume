@@ -15,16 +15,259 @@
             height: 100vh;
             width: 100vw;
             overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .pdf-container {
+            height: 100vh;
+            width: 100vw;
+            background: #525659;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .controls button {
+            background: #fff;
             border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .controls button:hover {
+            background: #f0f0f0;
+        }
+
+        .controls button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            color: white;
+            font-size: 14px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .zoom-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                bottom: 10px;
+                padding: 8px 15px;
+                gap: 10px;
+            }
+            
+            .controls button {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .page-info {
+                font-size: 12px;
+                min-width: 60px;
+            }
         }
     </style>
 </head>
 <body>
-    <iframe src="aashish_kumar.pdf" title="Aashish Kumar Resume"></iframe>
+    <div class="loading" id="loading">Loading PDF...</div>
+    <div class="pdf-container" id="pdf-container" style="display: none;">
+        <canvas id="pdf-canvas"></canvas>
+        <div class="controls">
+            <button id="prev-page" onclick="prevPage()">◀</button>
+            <div class="page-info">
+                <span id="page-num">1</span> / <span id="page-count">1</span>
+            </div>
+            <button id="next-page" onclick="nextPage()">▶</button>
+            <div class="zoom-controls">
+                <button onclick="zoomOut()">−</button>
+                <button onclick="zoomIn()">+</button>
+                <button onclick="fitToWidth()">Fit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Configure PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.0;
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Load PDF
+        pdfjsLib.getDocument('aashish_kumar.pdf').promise.then(function(pdf) {
+            pdfDoc = pdf;
+            document.getElementById('page-count').textContent = pdf.numPages;
+            
+            // Hide loading, show PDF
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('pdf-container').style.display = 'block';
+            
+            // Initial render
+            fitToWidth();
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            document.getElementById('loading').textContent = 'Error loading PDF. Please refresh the page.';
+        });
+
+        function renderPage(num) {
+            pageRendering = true;
+            
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                
+                const renderTask = page.render(renderContext);
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page-num').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function prevPage() {
+            if (pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+            updateButtons();
+        }
+
+        function nextPage() {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+            updateButtons();
+        }
+
+        function zoomIn() {
+            scale *= 1.2;
+            queueRenderPage(pageNum);
+        }
+
+        function zoomOut() {
+            if (scale <= 0.3) return;
+            scale /= 1.2;
+            queueRenderPage(pageNum);
+        }
+
+        function fitToWidth() {
+            if (!pdfDoc) return;
+            
+            pdfDoc.getPage(1).then(function(page) {
+                const viewport = page.getViewport({ scale: 1 });
+                const containerWidth = window.innerWidth;
+                const containerHeight = window.innerHeight - 80; // Account for controls
+                
+                const scaleX = containerWidth / viewport.width;
+                const scaleY = containerHeight / viewport.height;
+                
+                // Use the smaller scale to ensure the page fits entirely
+                scale = Math.min(scaleX, scaleY) * 0.95; // 95% to add some margin
+                
+                queueRenderPage(pageNum);
+            });
+        }
+
+        function updateButtons() {
+            document.getElementById('prev-page').disabled = (pageNum <= 1);
+            document.getElementById('next-page').disabled = (pageNum >= pdfDoc.numPages);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            fitToWidth();
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        canvas.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        canvas.addEventListener('touchend', function(e) {
+            if (!touchStartX || !touchStartY) return;
+            
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            const deltaX = touchStartX - touchEndX;
+            const deltaY = touchStartY - touchEndY;
+            
+            // Only handle horizontal swipes that are more significant than vertical
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    nextPage(); // Swipe left = next page
+                } else {
+                    prevPage(); // Swipe right = previous page
+                }
+            }
+            
+            touchStartX = 0;
+            touchStartY = 0;
+        });
+    </script>
 </body>
 </html>
