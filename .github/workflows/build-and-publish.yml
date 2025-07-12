@@ -1,0 +1,133 @@
+name: build-and-publish-resume
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Resume
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-id: ${{ steps.upload-pages.outputs.artifact-id }}
+    
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Cache Docker images
+        uses: actions/cache@v4
+        with:
+          path: /tmp/docker-images
+          key: docker-texlive-${{ runner.os }}-${{ hashFiles('**/Dockerfile') }}
+          restore-keys: |
+            docker-texlive-${{ runner.os }}-
+
+      - name: Load cached Docker image or pull
+        run: |
+          mkdir -p /tmp/docker-images
+          if [ -f /tmp/docker-images/texlive.tar ]; then
+            echo "Loading cached Docker image..."
+            docker load -i /tmp/docker-images/texlive.tar
+          else
+            echo "Pulling Docker image..."
+            docker pull thomasweise/docker-texlive-full:latest
+            echo "Saving Docker image to cache..."
+            docker save thomasweise/docker-texlive-full:latest -o /tmp/docker-images/texlive.tar
+          fi
+
+      - name: Create dist directory
+        run: mkdir -p dist
+
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: thomasweise/docker-texlive-full:latest
+          options: -v ${{ github.workspace }}:/workspace -v ${{ github.workspace }}/dist:/dist
+          run: |
+            cp /workspace/aashish_kumar.tex /dist/
+            cd /dist
+            pdflatex aashish_kumar.tex
+
+      - name: Clean up temporary files and prepare for deployment
+        run: |
+          rm -f semicolon_delimited_script
+          # Keep only the PDF file in dist
+          find dist/ -type f ! -name "*.pdf" -delete
+          # Copy the PDF to public folder for deployment
+          cp dist/aashish_kumar.pdf public/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        id: upload-pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+      - name: Upload dist artifacts for commit job
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-dist
+          path: dist/
+          retention-days: 1
+
+  commit:
+    name: Commit Resume to Repository
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: resume-dist
+          path: dist/
+
+      - name: Commit & push PDF back to main
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'ci: publish resume v${{ github.run_number }}'
+          file_pattern: 'dist/*.pdf dist/*.tex'
+          skip_dirty_check: false
+
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact-id }}

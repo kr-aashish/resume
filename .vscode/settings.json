@@ -1,0 +1,5 @@
+{
+    "gitAutoPull.enabled": true,
+    "gitAutoPull.continuousPull.enabled": true,
+    "gitAutoPull.continuousPull.interval": 30000
+}
