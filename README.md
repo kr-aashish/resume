@@ -1,11 +1,11 @@
 # Resume Repository
 
-An automated LaTeX resume builder with CI/CD pipeline that compiles, publishes, and distributes your resume across multiple platforms.
+An automated LaTeX resume builder with GitHub Actions pipeline that compiles, publishes, and distributes your resume across multiple platforms.
 
 ## 🌟 Features
 
 - **LaTeX Resume Compilation**: Professional resume built with LaTeX for consistent formatting
-- **Automated CI/CD Pipeline**: GitHub Actions workflow that builds and deploys on every push
+- **Automated Pipeline**: GitHub Actions workflow that builds and deploys on every push
 - **Multi-Platform Distribution**:
   - 📄 **PDF Generation**: Automatic PDF compilation and versioning
   - 🌐 **GitHub Pages**: Live web viewer at your GitHub Pages URL
@@ -62,7 +62,7 @@ resume/
    git push origin main
    ```
 
-## ⚙️ CI/CD Pipeline
+## ⚙️ Automation Pipeline
 
 The GitHub Actions workflow automatically:
 
@@ -149,4 +149,4 @@ This project structure is available under the MIT License. Update the LaTeX temp
 
 ---
 
-**Live Resume**: [View on GitHub Pages](https://<username>.github.io/<repository-name>/)
+**Live Resume**: [View on GitHub Pages](https://kr-aashish.github.io/resume/)
