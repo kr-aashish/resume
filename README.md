@@ -1,19 +1,19 @@
-# Resume Repository
+# Resume
 
 An automated LaTeX resume builder with GitHub Actions pipeline that compiles, publishes, and distributes your resume across multiple platforms.
 
-## 🌟 Features
+## Features
 
 - **LaTeX Resume Compilation**: Professional resume built with LaTeX for consistent formatting
 - **Automated Pipeline**: GitHub Actions workflow that builds and deploys on every push
 - **Multi-Platform Distribution**:
-  - 📄 **PDF Generation**: Automatic PDF compilation and versioning
-  - 🌐 **GitHub Pages**: Live web viewer at your GitHub Pages URL
+  - **PDF Generation**: Automatic PDF compilation and versioning
+  - **GitHub Pages**: Live web viewer at your GitHub Pages URL
 - **Clean PDF Viewer**: Minimal, Google Drive-style PDF viewer optimized for all devices
 - **Docker-based Build**: Consistent LaTeX compilation environment using Docker
 - **Version Control**: Automatic PDF commits with version tracking
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 resume/
@@ -29,7 +29,7 @@ resume/
 └── README.md                   # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -62,7 +62,7 @@ resume/
    git push origin main
    ```
 
-## ⚙️ Automation Pipeline
+## Automation Pipeline
 
 The GitHub Actions workflow automatically:
 
@@ -76,7 +76,7 @@ The GitHub Actions workflow automatically:
 - **Commit Job**: Commits PDF to `dist/` folder (main branch only)
 - **Deploy Job**: Publishes to GitHub Pages (main branch only)
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### 1. GitHub Pages Setup
 
@@ -90,7 +90,7 @@ The GitHub Actions workflow automatically:
 2. **Update filename**: Rename the `.tex` file to match your name
 3. **Update workflow**: If you renamed the file, update the filename in `.github/workflows/build-and-publish.yml`
 
-## 📱 PDF Viewer Features
+## PDF Viewer Features
 
 The web viewer provides a clean, distraction-free viewing experience:
 
@@ -100,7 +100,7 @@ The web viewer provides a clean, distraction-free viewing experience:
 - **Google Drive style**: Clean design with subtle shadows
 - **No controls**: Minimal interface focused on content
 
-## 🛠️ Docker Build Environment
+## Docker Build Environment
 
 The project uses a custom Docker environment for LaTeX compilation:
 
@@ -108,11 +108,11 @@ The project uses a custom Docker environment for LaTeX compilation:
 - **Clean output**: All build artifacts go to `data/` folder
 - **Isolated builds**: No contamination of source directory
 
-## 📋 File Naming Convention
+## File Naming Convention
 
 - **Repository PDFs**: `aashish_kumar.pdf` (matches .tex filename)
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -126,7 +126,7 @@ The project uses a custom Docker environment for LaTeX compilation:
 2. Verify file permissions and repository settings
 3. Test LaTeX compilation locally using Docker
 
-## 📝 Customization
+## Customization
 
 ### Modifying the Workflow
 
@@ -143,7 +143,7 @@ Modify `public/index.html` to:
 - Add custom branding
 - Implement additional features
 
-## 📄 License
+## License
 
 This project structure is available under the MIT License. Update the LaTeX template according to its original license.
 
