@@ -197,28 +197,31 @@
     \vspace{-5pt}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Gym Reservation Bot} $|$ \emph{Python, Selenium, Google Cloud Console}}{January 2021}
+          {\textbf{Jira 2.0} $|$ \href{https://github.com/kr-aashish}{\emph{View System Design}}}{Apr 2024 -- Jun 2024}
+          \resumeSubItem{Autonomous Project Management Suite}
           \resumeItemListStart
-            \resumeItem{Implemented Selenium to create an instance of Chrome in order to interact with the correct elements of the web page.}
-            \resumeItem{Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.}
-            \resumeItem{Used Cron to schedule the program to execute automatically at 11 AM every morning so a reservation is made for me.}
+            \resumeItem{Crafted a Lambda which triggers upon the project's FRD upload into S3, and creates user stories and tasks by leveraging Llama3 running in a private EC2}
+            \resumeItem{Facilitated Event Bridge to consume Slack messages periodically, then used the LLM through Flask APIs to compile task's status and assignment updates}
+            \resumeItem{Employed SES to dispatch task update approvals to stakeholders, thereupon invoking issue tracker's APIs to reflect corresponding changes in the backlog}
           \resumeItemListEnd
           \vspace{-13pt}
       \resumeProjectHeading
-          {\textbf{Ticket Price Calculator App} $|$ \emph{Java, Android Studio}}{November 2020}
+          {\textbf{DeployX} $|$ \href{https://github.com/kr-aashish}{\emph{Design Reference}}}{Jan 2024 -- Mar 2024}
+          \resumeSubItem{UI Deployment Automation}
           \resumeItemListStart
-            \resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
-            \resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
-            \resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
-          \resumeItemListEnd 
+            \resumeItem{Built an API server with a private RDS, which queues build jobs, and streams logs to Kafka for ingesting into ClickHouse, accessible as a polling endpoint}
+            \resumeItem{Provisioned an auto-scaled ECS cluster, which runs an ECR image in Fargate, to process the build job for the given codebase, and dump the artifacts to S3}
+            \resumeItem{Developed a reverse proxy for the deployed UI builds, to stream static assets from S3, mapping the project's subdomain to the S3 key with an RDS query}
+          \resumeItemListEnd
           \vspace{-13pt}
-          \resumeProjectHeading
-          {\textbf{Transaction Management GUI} $|$ \emph{Java, Eclipse, JavaFX}}{October 2020}
+      \resumeProjectHeading
+          {\textbf{Aranpani} $|$ \href{https://github.com/kr-aashish}{\emph{OpenAPI Docs}}}{Nov 2023 -- Dec 2023}
+          \resumeSubItem{Fundraiser Management System}
           \resumeItemListStart
-            \resumeItem{Designed a sample banking transaction system using Java to simulate the common functions of using a bank account.}
-            \resumeItem{Used JavaFX to create a GUI that supports actions such as creating an account, deposit, withdraw, list all acounts, etc.}
-            \resumeItem{Implemented object-oriented programming practices such as inheritance to create different account types and databases.}
-          \resumeItemListEnd 
+            \resumeItem{Modeled project, donor \& payment endpoints, with JWT auth, serializer, Joi validation middleware layers, adopted S3 pre-signed URLs for media uploads}
+            \resumeItem{Penned UTs for models \& controllers and acceptance test suites for the API endpoints, maintaining a 90\% above code coverage, with Jest and SuperTest}
+            \resumeItem{Ensured application's reliability with MongoDB Replica Sets, in PM2 cluster mode with APM, leveraging Nginx as a web server and Route53 name server}
+          \resumeItemListEnd
     \resumeSubHeadingListEnd
 \vspace{-15pt}
 
