@@ -201,21 +201,21 @@
           \resumeItemListStart
             \resumeItem{Crafted a Lambda which triggers upon the project's FRD upload into S3, and creates user stories and tasks by leveraging Llama3 running in a private EC2}
             \resumeItem{Facilitated Event Bridge to consume Slack messages periodically, then used the LLM through Flask APIs to compile task's status and assignment updates}
-            \resumeItem{Employed SES to dispatch task update approvals to stakeholders, thereupon invoking issue tracker's APIs to reflect corresponding changes in the backlog}
+            \resumeItem{Employed SES to dispatch task update approvals to stakeholders, thereupon invoking issue trackser's APIs to reflect corresponding changes in the backlog}
           \resumeItemListEnd
           \vspace{-13pt}
       \resumeProjectHeading
           {\textbf{DeployX} $|$ \textit{UI Deployment Automation} $|$ \href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{\underline{Design Reference}}}{Jan 2024 -- Mar 2024}
           \resumeItemListStart
             \resumeItem{Built an API server with a private RDS, which queues build jobs, and streams logs to Kafka for ingesting into ClickHouse, accessible as a polling endpoint}
-            \resumeItem{Provisioned an auto-scaled ECS cluster, which runs an ECR image in Fargate, to process the build job for the given codebase, and dump the artifacts to S3}
-            \resumeItem{Developed a reverse proxy for the deployed UI builds, to stream static assets from S3, mapping the project's subdomain to the S3 key with an RDS query}
+            \resumeItem{Provisioned an auto‐scaled ECS cluster, which runs an ECR image in Fargate, to process the build job for the given codebase, and dump the artifacts to S3}
+            \resumeItem{Developed a reverse proxy for the deployed UI builds, to stream static assets from S3, mapping the projects's subdomain to the S3 key with an RDS query}
           \resumeItemListEnd
           \vspace{-13pt}
       \resumeProjectHeading
           {\textbf{Aranpani} $|$ \textit{Fundraiser Management System} $|$ \href{https://kr-aashish.github.io/aranpani-api-docs}{\underline{OpenAPI Docs}}}{Nov 2023 -- Dec 2023}
           \resumeItemListStart
-            \resumeItem{Modeled project, donor \& payment endpoints, with JWT auth, serializer, Joi validation middleware layers, adopted S3 pre-signed URLs for media uploads}
+            \resumeItem{Modeled project, donor \& payment endpoints, with JWT auth, serializer, Joi validation middleware layers, adopted S3 pre‐signed URLs for media uploads}
             \resumeItem{Penned UTs for models \& controllers and acceptance test suites for the API endpoints, maintaining a 90\% above code coverage, with Jest and SuperTest}
             \resumeItem{Ensured application's reliability with MongoDB Replica Sets, in PM2 cluster mode with APM, leveraging Nginx as a web server and Route53 name server}
           \resumeItemListEnd
