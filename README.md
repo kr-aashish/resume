@@ -22,11 +22,8 @@ resume/
 ├── public/
 │   └── index.html               # PDF viewer web interface
 ├── dist/                        # Generated PDF files
-├── data/                        # LaTeX compilation artifacts
 ├── aashish_kumar.tex           # Main LaTeX resume file
 ├── Dockerfile                   # LaTeX compilation environment
-├── build.sh                    # Build script
-└── README.md                   # This file
 ```
 
 ## Quick Start
@@ -49,13 +46,7 @@ resume/
    - Modify `aashish_kumar.tex` with your information
    - Use standard LaTeX resume formatting
 
-3. **Build locally** (optional):
-   ```bash
-   ./build.sh
-   ```
-   This will compile your LaTeX file and generate the PDF in the `data/` directory.
-
-4. **Commit and push**:
+3. **Commit and push**:
    ```bash
    git add .
    git commit -m "Update resume"
@@ -105,7 +96,7 @@ The web viewer provides a clean, distraction-free viewing experience:
 The project uses a custom Docker environment for LaTeX compilation:
 
 - **Base**: `texlive/texlive:latest`
-- **Clean output**: All build artifacts go to `data/` folder
+- **Clean output**: All build artifacts go to `dist/` folder
 - **Isolated builds**: No contamination of source directory
 
 ## File Naming Convention
