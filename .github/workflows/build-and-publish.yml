@@ -111,7 +111,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'ci: publish resume v${{ github.run_number }}'
-          file_pattern: 'dist/*.pdf dist/*.tex'
+          file_pattern: 'dist/*.pdf'
           skip_dirty_check: false
 
   deploy:
