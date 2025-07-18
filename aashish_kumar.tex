@@ -148,7 +148,7 @@
 \vspace{1pt}
 \textbf{Deployment}{: Docker, GitHub Actions, Azure Build \& Release Pipelines, Deployment Groups, IIS, Nginx, Last9} \\
 \vspace{1pt}
-\textbf{Cloud}{: AWS S3, EC2, ECS, ELB, Lambda, RDS, ElastiCache, EFS, CloudWatch, SNS, SQS, SES, Route53 }
+\textbf{Cloud}{: AWS S3, EC2, ECS, ELB, Lambda, RDS, ElastiCache, EFS, CloudWatch, SNS, SQS, SES, IAM, Route53 }
 \end{flushleft}
  \vspace{-16pt}
 
@@ -203,7 +203,7 @@
       \resumeProjectHeading
           {\textbf{Jira 2.0} $|$ \textit{Autonomous Project Management Suite} $|$ \href{https://gist.github.com/kr-aashish/5d1b184bb082b29c0534861d07c2f25a}{\underline{View System Design}}}{Apr 2024 -- Jun 2024}
           \resumeItemListStart
-            \resumeItem{Crafted a Lambda which triggers upon the project's FRD upload into S3, and creates user stories and tasks by leveraging Llama3 running in a private EC2}
+            \resumeItem{Crafted a \textbf{Lambda}, which triggers upon FRD upload to \textbf{S3}, and creates user stories using \textbf{Llama3} running in an \textbf{EC2}}
             \resumeItem{Facilitated Event Bridge to consume Slack messages periodically, then used the LLM through Flask APIs to compile task's status and assignment updates}
             \resumeItem{Employed SES to dispatch task update approvals to stakeholders, thereupon invoking issue trackser's APIs to reflect corresponding changes in the backlog}
           \resumeItemListEnd
