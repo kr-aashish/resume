@@ -212,7 +212,7 @@
           {\textbf{DeployX} $|$ \textit{UI Deployment Automation} $|$ \href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{\underline{Design Reference}}}{Jan 2024 -- Mar 2024}
           \resumeItemListStart
             \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
-            \resumeItem{Provisioned an auto\textendash scaled ECS cluster, which runs an ECR image in Fargate, to process the build job for the given codebase, and dump the artifacts to S3}
+            \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
             \resumeItem{Developed a reverse proxy for the deployed UI builds, to stream static assets from S3, mapping the projects's subdomain to the S3 key with an RDS query}
           \resumeItemListEnd
           \vspace{-13pt}
