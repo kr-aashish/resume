@@ -110,11 +110,6 @@
 \begin{document}
 
 %----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
     {\Huge \scshape Aashish Kumar} \\ \vspace{1pt}
     \small \raisebox{-0.1\height}\faPhone\ +918084662242 ~ \href{mailto:aashishkr.iitkgp@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{aashishkr.iitkgp@gmail.com}} ~ 
@@ -163,11 +158,12 @@
       \resumeItemListStart
         \resumeItem{Redesigned the IMAP service, improving wait times by 16\% through event\textendash based mail fetch execution, auto\textendash retry mechanisms, and configurable domains.}
         \resumeItem{Improved the email compose experience flow, reducing errors by 30\%, and migrated mail view APIs from a database to Elasticsearch, which reduced mailbox latency by 25\%.}
-        \resumeItem{Migrated to an Affiliate Campaign and reward system, including campaign execution, audience segmentation, and click\textendash through analytics, reducing customer engagement costs by 80\%.}
+        % \resumeItem{Migrated to an Affiliate Campaign and reward system, including campaign execution, audience segmentation, and click\textendash through analytics, reducing customer engagement costs by 80\%.}
         % \resumeItem{Developed a Collections Data Ingestion Service, Collections Dimension Service, and a Collections Central Go Orchestrator, utilizing a Vector DB, ELSER, ES Mappings, and Product/Brand Semantic Search.}
         % \resumeItem{Migrated 40 microservices from CloudWatch to Last9 with OTEL, achieving a 30\% reduction in costs, right\textendash sized ES/RDS clusters, dropped a 300M index, and decommissioned 2 redundant RDS instances and 1 EFS.}
         % \resumeItem{Re\textendash engineered email info nested partitions, deleted 3 billion promotional email records from S3 and the database, and migrated Mime RDS to S3, resulting in a 30\% reduction in RDS costs.}
         % \resumeItem{Re\textendash engineered email info nested partitions, deleted 3 billion promotional email records from S3 and the database, and migrated Mime RDS to S3, resulting in a 30\% reduction in RDS costs.}
+        \resumeItem{Line}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -199,32 +195,36 @@
 
 %-----------PROJECTS-----------
 \section{Projects}
-    \vspace{-5pt}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{Jira 2.0} $|$ \textit{Autonomous Project Management Suite} $|$ \href{https://gist.github.com/kr-aashish/5d1b184bb082b29c0534861d07c2f25a}{\underline{View System Design}}}{Apr 2024 -- Jun 2024}
-          \resumeItemListStart
-            \resumeItem{Crafted a \textbf{Lambda}, which triggers upon FRD upload to \textbf{S3}, and creates user stories using \textbf{Llama3} running in an \textbf{EC2}}
-            \resumeItem{Facilitated \textbf{Event Bridge} to consume Slack messages, leveraged LLMs through \textbf{Flask} APIs to compile updates on tasks}
-            \resumeItem{Employed \textbf{SES} to dispatch task approvals to stakeholders, then invoked issue tracker APIs to reflect changes in backlog}
-          \resumeItemListEnd
-          \vspace{-13pt}
-      \resumeProjectHeading
-          {\textbf{DeployX} $|$ \textit{UI Deployment Automation} $|$ \href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{\underline{Design Reference}}}{Jan 2024 -- Mar 2024}
-          \resumeItemListStart
-            \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
-            \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
-            \resumeItem{Developed a \textbf{reverse proxy} for UI builds, streaming assets from \textbf{S3}, mapping subdomains to S3 keys using RDS query}
-          \resumeItemListEnd
-          \vspace{-13pt}
-      \resumeProjectHeading
-          {\textbf{Aranpani} $|$ \textit{Fundraiser Management System} $|$ \href{https://kr-aashish.github.io/aranpani-api-docs}{\underline{OpenAPI Docs}}}{Nov 2023 -- Dec 2023}
-          \resumeItemListStart
-            \resumeItem{Modeled project, donor and payment APIs with \textbf{JWT} auth, \textbf{Joi} validation, and S3 \textbf{presigned} URLs for media uploads}
-            \resumeItem{Penned \textbf{Unit} and \textbf{Acceptance} test suites, maintaining a code coverage of above \textbf{90\%}, leveraging \textbf{Jest} and \textbf{SuperTest}}
-            \resumeItem{Engineered resilience with \textbf{MongoDB} Replica Sets, \textbf{PM2} cluster \& APM, \textbf{Nginx} web server and \textbf{Route53} name server}
-          \resumeItemListEnd
-    \resumeSubHeadingListEnd
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Jira 2.0}{Apr 2024 -- Jun 2024}
+      {Autonomous Project Management Suite}{\href{https://gist.github.com/kr-aashish/5d1b184bb082b29c0534861d07c2f25a}{View System Design}}
+      \resumeItemListStart
+        \resumeItem{Crafted a \textbf{Lambda}, which triggers upon FRD upload to \textbf{S3}, and creates user stories using \textbf{Llama3} running in an \textbf{EC2}}
+        \resumeItem{Facilitated \textbf{Event Bridge} to consume Slack messages, leveraged LLMs through \textbf{Flask} APIs to compile updates on tasks}
+        \resumeItem{Employed \textbf{SES} to dispatch task approvals to stakeholders, then invoked issue tracker APIs to reflect changes in backlog}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {DeployX}{Jan 2024 -- Mar 2024}
+      {UI Deployment Automation}{\href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{Design Reference}}
+      \resumeItemListStart
+        \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
+        \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
+        \resumeItem{Developed a \textbf{reverse proxy} for UI builds, streaming assets from \textbf{S3}, mapping subdomains to S3 keys using RDS query}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Aranpani}{Nov 2023 -- Dec 2023}
+      {Fundraiser Management System}{\href{https://kr-aashish.github.io/aranpani-api-docs}{OpenAPI Docs}}
+      \resumeItemListStart
+        \resumeItem{Modeled project, donor and payment APIs with \textbf{JWT} auth, \textbf{Joi} validation, and S3 \textbf{presigned} URLs for media uploads}
+        \resumeItem{Penned \textbf{Unit} and \textbf{Acceptance} test suites, maintaining a code coverage of above \textbf{90\%}, leveraging \textbf{Jest} and \textbf{SuperTest}}
+        \resumeItem{Engineered resilience with \textbf{MongoDB} Replica Sets, \textbf{PM2} cluster \& APM, \textbf{Nginx} web server and \textbf{Route53} name server}
+      \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
 \vspace{-15pt}
 
 
