@@ -5,27 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aashish Kumar - Resume</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007acc'><path d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z'/></svg>" type="image/svg+xml">
+    <meta http-equiv="refresh" content="0; url=aashish_kumar.pdf">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
         }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        
+        .redirect-message {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        
+        .redirect-message h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #007acc;
+        }
+        
+        .redirect-message p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .redirect-message a {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .redirect-message a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script>
+        // Immediate redirect to PDF
+        window.location.replace('aashish_kumar.pdf');
+    </script>
 </head>
 <body>
-    <iframe src="aashish_kumar.pdf" title="Aashish Kumar Resume"></iframe>
+    <div class="redirect-message">
+        <h1>Aashish Kumar</h1>
+        <p>Redirecting to resume...</p>
+        <p>If you're not redirected automatically, <a href="aashish_kumar.pdf">click here to view the resume</a>.</p>
+    </div>
 </body>
 </html>
