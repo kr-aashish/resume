@@ -24,26 +24,12 @@
 \setlength{\columnsep}{-1pt}
 \input{glyphtounicode}
 
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
 \addtolength{\oddsidemargin}{-0.6in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
@@ -56,16 +42,12 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
-% Custom commands
 \newcommand{\resumeItem}[1]{
   \item\small{
     {#1 \vspace{-2pt}}
@@ -110,13 +92,9 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{document}
 
-%----------HEADING----------
 \begin{center}
     {\Huge \scshape Aashish Kumar} \\ \vspace{2pt}
     \small \raisebox{-0.1\height}\faPhone\ +918084662242 ~ \href{mailto:aashishkr.iitkgp@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  aashishkr.iitkgp@gmail.com} ~ 
@@ -126,7 +104,6 @@
 \end{center}
 
 
-%-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
@@ -146,6 +123,7 @@
         % \resumeItem{Performance: Latency Improvements with Brand V3 Cache: Caching levels, Cache Size estimation, Caching Complex APIs, Multi API caching for response or extracted result, TTL business stale determinations}
         % \resumeItem{Scrapper: NAT Egress cost with Public subnet and peering}
         % \resumeItem{Agentic AI: Back merge by productID, Back Merge by URL, Merging across previous runs, 16.25\% improvement in seller details}
+        % \discovery: De-dup, Catalogue, APIs
         \resumeItem{Enhanced observability incorporating \textbf{OTEL} across \textbf{28} services, transitioning from CW to Last9, reducing costs by \textbf{30\%}}
         \resumeItem{Migrated mime data from RDS to S3 with \textbf{Lifecycle} policy, reducing storage costs by \textbf{55\%}, and \textbf{halved} S3 write costs}
         \resumeItem{Re-engineered email table with \textbf{nested partitions}, deleted \textbf{2B} promotional mails from S3/DB, resulting \textbf{66\%} cost save}
@@ -180,7 +158,6 @@
   \resumeSubHeadingListEnd
 \vspace{-16pt}
 
-%-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
@@ -189,7 +166,6 @@
   \resumeSubHeadingListEnd
 
 
-%-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
 \begin{flushleft}
 \setlength{\leftskip}{0.2in}
