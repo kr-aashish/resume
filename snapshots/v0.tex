@@ -133,6 +133,7 @@
       {Flash AI}{Dec 2024 - Present}
       {Software Development Engineer}{Bangalore}
        \resumeItemListStart
+       % Explain context, business impact, put hardcore numbers $150K
        % Bar Raiser: Metrics, Numbers, Optimisations, Distributed Systems and Rock Solid Features (Non Infra/Cloud)
         \resumeItem{Redesigned \textbf{IMAP} service, decoupling mail fetch events, auto-retry, configurable domains, improved wait times by \textbf{76\%}}
         \resumeItem{Overhauled email compose flow, reducing errors by \textbf{25\%}, and migrated the mail list API to \textbf{ES}, cutting latency by \textbf{60\%}}
@@ -169,10 +170,9 @@
       {Amazon}{May 2022 - Jul 2022}
       {Software Development Engineer Intern}{Bangalore}
       \resumeItemListStart
-      % Explain the business impact of this, convert Cadence Frequency to percentage number
+      % Explain the business impact of this, convert Cadence Frequency to percentage improvment
         \resumeItem{Designed \textbf{UUID} for CGS Dashboard versioning and improved cadence from \textbf{weekly to every second}, in the EMR job}
         \resumeItem{Revamped Audit Log \textbf{DynamoDB} to store metadata for the dashboard, tracking published versions in CGS Version UI}
-        % \resumeItem{CGS UI: Enhanced with filters, publish time, and the EMR status display}
         \resumeItem{Reengineered the \textbf{CSV View} to render the dashboard directly from \textbf{S3}, \textbf{eliminating the cost} of maintaining the DDB}
         \resumeItem{Devised \textbf{CSV diff} algorithm to compare dashboard versions by primary index, providing list of changes to stakeholders}
       \resumeItemListEnd
@@ -197,19 +197,11 @@
 % Languages & Frameworks: To be targetted precisely (RED FLAG!)
 \textbf{Programming Languages}{: Java, Golang, Python, C++, JavaScript, TypeScript, SQL} \\
 \vspace{1pt}
-% \textbf{Markup/Query Languages}{: HTML5, CSS3, T‐SQL, pgSQL} \\
-\vspace{1pt}
 \textbf{Frameworks}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph} \\
-% \textbf{Frameworks \& ORMs}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph, jOOQ, SQLAlchemy, Alembic, Mongoose, Prisma, Gorm} \\
 \vspace{1pt}
-% \textbf{Libraries}{: React.js, Jest, Joi, SuperTest, Colly, Playwright, BullMQ, Standard Template Library} \\
-% \vspace{1pt}
-% \textbf{Databases}{: Redis, MongoDB, DynamoDB, Elasticsearch, SQLite, SQL Server, PostgreSQL, pgvector} \\
 \textbf{Databases}{: Redis, MongoDB, DynamoDB, Elasticsearch, PostgreSQL, pgvector} \\
 \vspace{1pt}
-% \textbf{Deployment}{: Docker, GitHub Actions, Azure DevOps Build \& Release Pipelines, Deployment Groups, IIS, Nginx, Last9} \\
 \textbf{Infrastructure}{: Docker, Azure DevOps, Last9, AWS (S3, EC2, ECS, ALB, Lambda, RDS, ElastiCache, CW, SNS, SQS)} \\
-% \textbf{Cloud}{: AWS S3, EC2, ECS, ELB, Lambda, RDS, ElastiCache, CloudWatch, SNS, SQS, SES, IAM, CloudFront, Route53 }
 \end{flushleft}
  \vspace{-16pt}
   
@@ -231,6 +223,7 @@
     \resumeSubheading
       {DeployX}{Jan 2024 - Mar 2024}
       {UI Deployment Automation}{\href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{Design Reference}}
+      % Explain the DX Impact of this project
       \resumeItemListStart
         \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
         \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
@@ -240,8 +233,8 @@
     \resumeSubheading
       {Aranpani}{Nov 2023 - Dec 2023}
       {Fundraiser Management System}{\href{https://kr-aashish.github.io/aranpani-api-docs}{OpenAPI Docs}}
+      % End to end backend system
       \resumeItemListStart
-      % Explain the DX Impact of this project
         \resumeItem{Modeled project, donor \& payment APIs with \textbf{JWT} auth, \textbf{Joi} validation, opting S3 \textbf{presigned URL} for media uploads}
         \resumeItem{Penned \textbf{Unit} and \textbf{Acceptance} test suites, maintaining a code coverage of above \textbf{90\%}, leveraging \textbf{Jest} and \textbf{SuperTest}}
         \resumeItem{Engineered resilience with \textbf{MongoDB} Replica Sets, \textbf{PM2} cluster \& APM, \textbf{Nginx} web server and \textbf{Route53} name server}
@@ -249,24 +242,5 @@
     
   \resumeSubHeadingListEnd
 \vspace{-16pt}
-
-% %------RELEVANT COURSEWORK-------
-% \section{Coursework \& Certifications}
-%         \begin{multicols}{3}
-%             \begin{itemize}[itemsep=-2pt, parsep=3pt]
-%                 \item Programming \& Data Structures
-%                 \item Algorithms 1
-%                 \item Applied Algorithms and DS
-%                 \item Probability and Statistics
-%                 \item Data Analytics
-%                 \item Machine Learning Foundations
-%                 \item Deep Learning Foundations
-%                 \item Winter School of AI \& Robotics
-%                 \item AlgoExpert $|$ algoexpert.io
-%                 \item FrontendExpert $|$ algoexpert.io
-%                 \item SystemsExpert $|$ algoexpert.io
-%                 \item InfraExpert $|$ algoexpert.io
-%             \end{itemize}
-%         \end{multicols}
 
 \end{document}
