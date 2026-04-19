@@ -1,1 +1,4 @@
 *.json
+notion/
+analysis/
+.DS_Store
