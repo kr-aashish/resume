@@ -25,19 +25,6 @@
 \setlength{\columnsep}{-1pt}
 \input{glyphtounicode}
 
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
@@ -96,8 +83,8 @@
 
 \newcommand{\resumeProjectHeading}[2]{
     \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -200,7 +187,7 @@
 \vspace{1pt}
 % \textbf{Markup/Query Languages}{: HTML5, CSS3, T‐SQL, pgSQL} \\
 \vspace{1pt}
-\textbf{Frameworks}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph} \\
+\textbf{Frameworks}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph, Google ADK} \\
 % \textbf{Frameworks \& ORMs}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph, jOOQ, SQLAlchemy, Alembic, Mongoose, Prisma, Gorm} \\
 \vspace{1pt}
 % \textbf{Libraries}{: React.js, Jest, Joi, SuperTest, Colly, Playwright, BullMQ, Standard Template Library} \\
@@ -219,9 +206,8 @@
 \section{Projects}
   \resumeSubHeadingListStart
 
-    \resumeSubheading
+    \resumeProjectHeading
       {Jira 2.0}{Apr 2024 - Jun 2024}
-      {Autonomous Project Management Suite}{\href{https://gist.github.com/kr-aashish/5d1b184bb082b29c0534861d07c2f25a}{View System Design}}
       \resumeItemListStart
       % Explain the business impact produced by this
         \resumeItem{Crafted a \textbf{Lambda}, which triggers upon \textbf{FRD} upload to \textbf{S3}, and creates user stories using \textbf{Llama3} running in an \textbf{EC2}}
@@ -229,20 +215,17 @@
         \resumeItem{Employed \textbf{SES} to dispatch task approvals, thereupon invoking \textbf{issue tracker's API} to reflect these changes in backlog}
       \resumeItemListEnd
 
-    \resumeSubheading
+    \resumeProjectHeading
       {DeployX}{Jan 2024 - Mar 2024}
-      {UI Deployment Automation}{\href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{Design Reference}}
       \resumeItemListStart
         \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
         \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
         \resumeItem{Developed a \textbf{reverse proxy} for UI builds, streaming assets from S3, \textbf{mapping subdomain} to S3 key with RDS query}
       \resumeItemListEnd
 
-    \resumeSubheading
+    \resumeProjectHeading
       {Aranpani}{Nov 2023 - Dec 2023}
-      {Fundraiser Management System}{\href{https://kr-aashish.github.io/aranpani-api-docs}{OpenAPI Docs}}
       \resumeItemListStart
-      % Explain the DX Impact of this project
         \resumeItem{Modeled project, donor \& payment APIs with \textbf{JWT} auth, \textbf{Joi} validation, opting S3 \textbf{presigned URL} for media uploads}
         \resumeItem{Penned \textbf{Unit} and \textbf{Acceptance} test suites, maintaining a code coverage of above \textbf{90\%}, leveraging \textbf{Jest} and \textbf{SuperTest}}
         \resumeItem{Engineered resilience with \textbf{MongoDB} Replica Sets, \textbf{PM2} cluster \& APM, \textbf{Nginx} web server and \textbf{Route53} name server}
