@@ -1,0 +1,254 @@
+% The language of the resume is wayy to complex to be read/understood/have context by a recruiter/HR
+% You're trying to fit in every fucking shit you've ever done! Prioritise, choose 2 things over 4, and describe only 2 things in your resume with proper/first time context for anyone. You've worked at startup, nobody knows what you're company does!
+% You can take half the fucking space of your resume just for Flash AI
+% Acronyms, IMAP, ES, OTEL, DLL, FFI, even a tehnical person will not understand these, forget TA/HRs
+% Why are you making everything bold!? In 7s HR will go through you're resume, what's the point of having bold, if everything is bold!?
+% For even shitty to shitty things, You can write this in a langugage that presents it's as super duper impactful, in simple words! In the interview, nobody knows what work you've done, they'll get an idea/conclude/make an impression everything on how you present it!
+% Screening (HR/TA) -> DSA -> LLD -> HLD -> HM: Resume comes in only in hiring manager round once (and if!) you pass through the screening
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.7in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Aashish Kumar} \\ \vspace{2pt}
+    \small \raisebox{-0.1\height}\faPhone\ +918084662242 ~ \href{mailto:aashishkr.iitkgp@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  aashishkr.iitkgp@gmail.com} ~ 
+    \href{https://www.linkedin.com/in/kr-aashish/}{\raisebox{-0.2\height}\faLinkedin\ linkedin.com/in/kr-aashish}  ~
+    \href{https://github.com/kr-aashish}{\raisebox{-0.2\height}\faGithub\ github.com/kr-aashish}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Flash AI}{Dec 2024 - Present}
+      {Software Development Engineer}{Bangalore}
+       \resumeItemListStart
+       % Bar Raiser: Metrics, Numbers, Optimisations, Distributed Systems and Rock Solid Features (Non Infra/Cloud)
+        \resumeItem{Redesigned \textbf{IMAP} service, decoupling mail fetch events, auto-retry, configurable domains, improved wait times by \textbf{76\%}}
+        \resumeItem{Overhauled email compose flow, reducing errors by \textbf{25\%}, and migrated the mail list API to \textbf{ES}, cutting latency by \textbf{60\%}}
+        % \resumeItem{Outlook mail import job: Hotfix and Permanent fixes to a production issue, Alarms/Alerts}
+        % \resumeItem{Auto Trash \& Clear Trash: Shedlock for Crons, Condition builder in jOOQ, Redis Repository, Batch Delete via Paginated query, applicable without ULID}
+        % \resumeItem{Onboarding CleverTap CEP for Backend Events: Resilinace4j, Null check before user attribute access}
+        % \resumeItem{Fmail: Dedicated IP in SES, Lambda to ECS Migration, solving concurrency problems, broken S3 connection in middle of bytes transfer}
+        % \resumeItem{Developed a Collections Data Ingestion Service, Collections Dimension Service, and a Collections Central Go Orchestrator, utilizing a Vector DB, ELSER, ES Mappings, and Product/Brand Semantic Search.}
+        % \resumeItem{Migrated to an Affiliate Campaign and reward system, including campaign execution, audience segmentation, and click\textendash through analytics, reducing customer engagement costs by 80\%.}
+        % \resumeItem{Performance: Latency Improvements with Brand V3 Cache: Caching levels, Cache Size estimation, Caching Complex APIs, Multi API caching for response or extracted result, TTL business stale determinations}
+        % \resumeItem{Scrapper: NAT Egress cost with Public subnet and peering}
+        % \resumeItem{Agentic AI: Back merge by productID, Back Merge by URL, Merging across previous runs, 16.25\% improvement in seller details}
+        \resumeItem{Enhanced observability incorporating \textbf{OTEL} across \textbf{28} services, transitioning from CW to Last9, reducing costs by \textbf{30\%}}
+        \resumeItem{Migrated mime data from RDS to S3 with \textbf{Lifecycle} policy, reducing storage costs by \textbf{55\%}, and \textbf{halved} S3 write costs}
+        \resumeItem{Re-engineered email table with \textbf{nested partitions}, deleted \textbf{2B} promotional mails from S3/DB, resulting \textbf{66\%} cost save}
+        \resumeItem{Optimized infra costs by right-sizing \textbf{ECS/RDS} cluster, \textbf{S3 Glacier} archival, \textbf{Subnet} restructuring, yielding \textbf{38\%} cut}
+        
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {RootQuotient}{Jun 2023 - Dec 2024}
+      {Software Development Engineer}{Chennai}
+      \resumeItemListStart
+      % Migrated a Cancer Registery System, Explain the business complexity of this
+      % Achieved Transient Migration with DLL & FFI
+        \resumeItem{Created APIs to migrate Cancer Registry System from \textbf{PL/SQL} \textbf{SPs} \& \textbf{Triggers} to \textbf{TS}, with \textbf{SQL Server} \& \textbf{Prisma}}
+        \resumeItem{Ported .NET Web Services using \textbf{RPC} client and \textbf{SOAP} APIs with WSDL in Node.js, consuming \textbf{DLLs} through \textbf{FFI}}
+        \resumeItem{Scheduled \textbf{cron} job consuming HL7 documents with locks and \textbf{configurable} interval, \textbf{scaled} to cluster threads via \textbf{IPC}}
+        \resumeItem{Wrote \textbf{unit} \& \textbf{integration} test suites with a coverage of \textbf{85\%}, optimized on-premise infra using Grafana's \textbf{K6} perf tests}
+        \resumeItem{Configured build \& release \textbf{pipelines}, with coverage reporter, static code analyzer, deploying to \textbf{IIS} with \textbf{Azure} agents}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Amazon}{May 2022 - Jul 2022}
+      {Software Development Engineer Intern}{Bangalore}
+      \resumeItemListStart
+      % Explain the business impact of this, convert Cadence Frequency to percentage number
+        \resumeItem{Designed \textbf{UUID} for CGS Dashboard versioning and improved cadence from \textbf{weekly to every second}, in the EMR job}
+        \resumeItem{Revamped Audit Log \textbf{DynamoDB} to store metadata for the dashboard, tracking published versions in CGS Version UI}
+        % \resumeItem{CGS UI: Enhanced with filters, publish time, and the EMR status display}
+        \resumeItem{Reengineered the \textbf{CSV View} to render the dashboard directly from \textbf{S3}, \textbf{eliminating the cost} of maintaining the DDB}
+        \resumeItem{Devised \textbf{CSV diff} algorithm to compare dashboard versions by primary index, providing list of changes to stakeholders}
+      \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Technology Kharagpur}{Jun 2018 -- May 2023}
+      {Dual Degree (B.Tech \& M.Tech), CGPA: 8.52/10}{Kharagpur}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+\begin{flushleft}
+\setlength{\leftskip}{0.2in}
+\small
+% Languages & Frameworks: To be targetted precisely (RED FLAG!)
+\textbf{Programming Languages}{: Java, Golang, Python, C++, JavaScript, TypeScript, SQL} \\
+\vspace{1pt}
+% \textbf{Markup/Query Languages}{: HTML5, CSS3, T‐SQL, pgSQL} \\
+\vspace{1pt}
+\textbf{Frameworks}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph} \\
+% \textbf{Frameworks \& ORMs}{: Spring Boot, FastAPI, Gin, Express.js, LangGraph, jOOQ, SQLAlchemy, Alembic, Mongoose, Prisma, Gorm} \\
+\vspace{1pt}
+% \textbf{Libraries}{: React.js, Jest, Joi, SuperTest, Colly, Playwright, BullMQ, Standard Template Library} \\
+% \vspace{1pt}
+% \textbf{Databases}{: Redis, MongoDB, DynamoDB, Elasticsearch, SQLite, SQL Server, PostgreSQL, pgvector} \\
+\textbf{Databases}{: Redis, MongoDB, DynamoDB, Elasticsearch, Typesense, PostgreSQL, pgvector} \\
+\vspace{1pt}
+% \textbf{Deployment}{: Docker, GitHub Actions, Azure DevOps Build \& Release Pipelines, Deployment Groups, IIS, Nginx, Last9} \\
+\textbf{Infrastructure}{: Docker, Azure DevOps, Last9, AWS (S3, EC2, ECS, ALB, Lambda, RDS, ElastiCache, CW, SNS, SQS)} \\
+% \textbf{Cloud}{: AWS S3, EC2, ECS, ELB, Lambda, RDS, ElastiCache, CloudWatch, SNS, SQS, SES, IAM, CloudFront, Route53 }
+\end{flushleft}
+ \vspace{-16pt}
+  
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Jira 2.0}{Apr 2024 - Jun 2024}
+      {Autonomous Project Management Suite}{\href{https://gist.github.com/kr-aashish/5d1b184bb082b29c0534861d07c2f25a}{View System Design}}
+      \resumeItemListStart
+      % Explain the business impact produced by this
+        \resumeItem{Crafted a \textbf{Lambda}, which triggers upon \textbf{FRD} upload to \textbf{S3}, and creates user stories using \textbf{Llama3} running in an \textbf{EC2}}
+        \resumeItem{Facilitated \textbf{Event Bridge} to consume Slack messages, leveraged LLMs through \textbf{Flask} APIs to compile updates on tasks}
+        \resumeItem{Employed \textbf{SES} to dispatch task approvals, thereupon invoking \textbf{issue tracker's API} to reflect these changes in backlog}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {DeployX}{Jan 2024 - Mar 2024}
+      {UI Deployment Automation}{\href{https://vercel.com/blog/behind-the-scenes-of-vercels-infrastructure}{Design Reference}}
+      \resumeItemListStart
+        \resumeItem{Built an API server with \textbf{RDS}, queuing build jobs and streaming logs to \textbf{Kafka} for \textbf{ClickHouse}, accessible via polling}
+        \resumeItem{Provisioned an \textbf{ECS} cluster which runs \textbf{ECR} images in \textbf{Fargate}, to process the build jobs and dump the artifacts to \textbf{S3}}
+        \resumeItem{Developed a \textbf{reverse proxy} for UI builds, streaming assets from S3, \textbf{mapping subdomain} to S3 key with RDS query}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Aranpani}{Nov 2023 - Dec 2023}
+      {Fundraiser Management System}{\href{https://kr-aashish.github.io/aranpani-api-docs}{OpenAPI Docs}}
+      \resumeItemListStart
+      % Explain the DX Impact of this project
+        \resumeItem{Modeled project, donor \& payment APIs with \textbf{JWT} auth, \textbf{Joi} validation, opting S3 \textbf{presigned URL} for media uploads}
+        \resumeItem{Penned \textbf{Unit} and \textbf{Acceptance} test suites, maintaining a code coverage of above \textbf{90\%}, leveraging \textbf{Jest} and \textbf{SuperTest}}
+        \resumeItem{Engineered resilience with \textbf{MongoDB} Replica Sets, \textbf{PM2} cluster \& APM, \textbf{Nginx} web server and \textbf{Route53} name server}
+      \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+\end{document}
